@@ -6,12 +6,10 @@
  * @return {object}
  */
 function convertToObject(sourceString) {
-  const styleArray = sourceString.split(';').filter(Boolean);
+  const styleArray = sourceString.split(';');
 
   return styleArray.reduce((styleObj, style) => {
-    const [key, value] = style.split(':').map((segment) => {
-      return segment.trim();
-    });
+    const [key, value] = style.split(':').map((segment) => segment.trim());
 
     if (key && value) {
       styleObj[key] = value;
